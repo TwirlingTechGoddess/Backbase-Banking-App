@@ -9,6 +9,8 @@ import { RecentTransactionsComponent } from './recent-transactions/recent-transa
 import { SearchFiltersComponent } from './search-filters/search-filters.component';
 import { TransactionsRowComponent } from './transactions-row/transactions-row.component';
 import { TransactionsService } from './core/services/transactions.service';
+import { HttpClientModule } from '@angular/common/http'; 
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { TransactionsService } from './core/services/transactions.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [TransactionsService],
   bootstrap: [AppComponent]
