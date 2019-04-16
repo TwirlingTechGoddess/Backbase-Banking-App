@@ -1,6 +1,6 @@
 <section class="transactions-container">
 
-    <app-search-filters></app-search-filters>
+    <app-search-filters (onSearch)="handleOnSearch($event)"></app-search-filters>
     <ul >
         <li *ngFor="let transaction of transactions$">
 

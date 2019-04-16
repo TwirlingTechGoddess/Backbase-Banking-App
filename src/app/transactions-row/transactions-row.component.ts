@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Transaction } from '../core/model/Transaction';
 import { TransactionsService } from '../core/services/transactions.service';
 
@@ -8,7 +8,7 @@ import { TransactionsService } from '../core/services/transactions.service';
   styleUrls: ['./transactions-row.component.css']
 })
 export class TransactionsRowComponent implements OnInit {
-  transactions$: Transaction[];
+  @Input() transactions$: Transaction[];
   constructor(private transactionsService: TransactionsService) {};
 
   ngOnInit() {
@@ -17,5 +17,9 @@ export class TransactionsRowComponent implements OnInit {
         this.transactions$ = data.data
         console.log(this.transactions$)
       });
+  }
+
+  handleOnSearch(event) {
+    console.log(event)
   }
 }
