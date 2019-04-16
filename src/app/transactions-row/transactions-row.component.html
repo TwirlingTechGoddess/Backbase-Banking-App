@@ -1,3 +1,21 @@
-<p>
-  transactions-row works!
-</p>
+<section class="transactions-container">
+
+    <!-- <app-search-filter (onSearch)="handleSearch($event)" (onFilter)="handleSort($event)"></app-search-filter> -->
+    <ul >
+        <li *ngFor="let transaction of transactions$">
+
+            <span class="bar" [style.backgroundColor]="transaction.categoryCode"></span>
+            <span class="date">{{ transaction.transactionDate | date:'MMM d' }}</span>
+            <span class="image"><img width="40" [src]="transaction.merchantLogo"></span>
+            <span class="transactionType">
+                <p>
+                <!-- {{ transaction }} -->
+                    
+                    <strong>{{ transaction.merchant }}</strong>
+                    {{ transaction.transactionType }}
+                </p>
+            </span>
+            <span class="amount"></span>
+        </li>
+    </ul>
+</section>

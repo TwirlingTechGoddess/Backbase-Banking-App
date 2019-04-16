@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-recent-transactions',
   templateUrl: './recent-transactions.component.html',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentTransactionsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+
   }
 
 }
