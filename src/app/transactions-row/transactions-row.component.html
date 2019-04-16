@@ -2,7 +2,7 @@
 
     <app-search-filters (onSearch)="handleOnSearch($event)"></app-search-filters>
     <ul >
-        <li *ngFor="let transaction of transactions$">
+        <li *ngFor="let transaction of transactionsLog">
 
             <span class="bar" [style.backgroundColor]="transaction.categoryCode"></span>
             <span class="date">{{ transaction.transactionDate | date:'MMM d' }}</span>
