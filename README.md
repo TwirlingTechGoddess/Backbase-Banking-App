@@ -1,4 +1,11 @@
 # Backbase Banking App
+This app was build by following along to this [Angular Tutorial](https://www.youtube.com/watch?v=TqBDr4OK4pU) by Javascript Evangelist.
+
+Screenshot of full layout:
+
+
+Close-up of filter and search functionalty:
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
