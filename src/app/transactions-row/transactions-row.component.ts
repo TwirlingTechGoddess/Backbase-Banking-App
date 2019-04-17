@@ -30,8 +30,7 @@ export class TransactionsRowComponent implements OnInit {
   constructor(private transactionsService: TransactionsService) {};
 
   ngOnInit() {
-    return this.transactionsService.getAll()
-      .subscribe(data => {
+    return this.transactionsService.getAll().subscribe(data => {
         this.transactionsLog = this.transactionsBackup = data.data
       });
   }
@@ -51,8 +50,13 @@ export class TransactionsRowComponent implements OnInit {
     switch(type) {
       case filters.date:
         this.handleSortDate();
-      break;
-
+        break;
+      case filters.beneficiaries:
+        this.handleSortBeneficiaries();
+        break;
+      case filters.amount:
+        this.handleSortAmount();
+        break;
     }
   }
 
@@ -64,8 +68,34 @@ export class TransactionsRowComponent implements OnInit {
           return logB.transactionDate - logA.transactionDate
         } else {
           return logA.transactionDate - logB.transactionDate
-
         }
-      })
+      }
+    )
+  }
+
+  handleSortBeneficiaries(){
+    this.sortByBeneficiaries = !this.sortByBeneficiaries
+    this.transactionsLog = this.transactionsLog.sort(
+      (logA: Transaction, logB: Transaction) => {
+        if(this.sortByBeneficiaries){
+          return (logA.merchant).localeCompare(logB.merchant)
+        } else {
+          return (logB.merchant).localeCompare(logA.merchant)
+        }
+      }
+    )
+  }
+
+  handleSortAmount(){
+    this.sortByAmount = !this.sortByAmount
+    this.transactionsLog = this.transactionsLog.sort(
+      (logA: Transaction, logB: Transaction) => {
+        if(this.sortByAmount){
+          return (logA.amount).localeCompare(logB.amount)
+        } else {
+          return (logB.amount).localeCompare(logA.amount)
+        }
+      }
+    )
   }
 }

@@ -44,7 +44,6 @@ export class SearchFiltersComponent implements OnInit {
 
   handleSort(type) {
     this.removeClass()
-    console.log(this.sortByDate, this.sortByBeneficiaries, this.sortByAmount, type)
     switch (type) {
       case filters.date:
         this.sortByDate = !this.sortByDate;
@@ -58,8 +57,6 @@ export class SearchFiltersComponent implements OnInit {
         this.sortByAmount = !this.sortByAmount;
         this.amount.nativeElement.className = (this.sortByAmount ? 'up' : 'down')
         break;
-      default:
-        return 
     }
   }
 
