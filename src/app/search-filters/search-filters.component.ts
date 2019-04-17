@@ -20,8 +20,8 @@ export class SearchFiltersComponent implements OnInit {
   @Output() onFilter = new EventEmitter();
   @Output() onSearch = new EventEmitter();
   public sortByDate = true;
-  public sortByBeneficiaries = false;
-  public sortByAmount = false;
+  public sortByBeneficiaries = true;
+  public sortByAmount = true;
 
   @ViewChild('date') date;
   @ViewChild('beneficiaries') beneficiaries;

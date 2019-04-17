@@ -10,12 +10,11 @@
             <span class="transactionType">
                 <p>
                 <!-- {{ transaction }} -->
-                    
                     <strong>{{ transaction.merchant }}</strong>
                     {{ transaction.transactionType }}
                 </p>
             </span>
-            <span class="amount"></span>
+            <span class="amount">{{ transaction.amount }}</span>
         </li>
     </ul>
 </section>

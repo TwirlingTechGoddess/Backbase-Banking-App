@@ -15,8 +15,8 @@ export class TransactionsRowComponent implements OnInit {
   public transactionsBackup
 
   public sortByDate = true;
-  public sortByBeneficiaries = false;
-  public sortByAmount = false;
+  public sortByBeneficiaries = true;
+  public sortByAmount = true;
 
 
   @Input('transactions')
@@ -78,9 +78,9 @@ export class TransactionsRowComponent implements OnInit {
     this.transactionsLog = this.transactionsLog.sort(
       (logA: Transaction, logB: Transaction) => {
         if(this.sortByBeneficiaries){
-          return (logA.merchant).localeCompare(logB.merchant)
-        } else {
           return (logB.merchant).localeCompare(logA.merchant)
+        } else {
+          return (logA.merchant).localeCompare(logB.merchant)
         }
       }
     )
@@ -91,9 +91,9 @@ export class TransactionsRowComponent implements OnInit {
     this.transactionsLog = this.transactionsLog.sort(
       (logA: Transaction, logB: Transaction) => {
         if(this.sortByAmount){
-          return (logA.amount).localeCompare(logB.amount)
+          return parseInt(logB.amount) - parseInt(logA.amount)
         } else {
-          return (logB.amount).localeCompare(logA.amount)
+          return parseInt(logA.amount) - parseInt(logB.amount)
         }
       }
     )
