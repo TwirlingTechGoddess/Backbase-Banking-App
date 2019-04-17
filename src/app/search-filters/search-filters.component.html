@@ -1,3 +1,11 @@
-<p>
-  search-filters works!
-</p>
+<section class="search-filter">
+  <div class="search">
+    <input type="search" #searchInput (keyup)="onSearchInput(searchInput.value)" placeholder="Search by typing.." />
+    <i>Sort by</i>
+  </div>
+  <div class="filters">
+    <span #date (click)="filter(1)">Date</span>
+    <span #beneficiaries (click)="filter(2)">Beneficiaries</span>
+    <span #amount (click)="filter(3)">Amount</span>
+  </div>
+</section>

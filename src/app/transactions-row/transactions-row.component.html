@@ -1,8 +1,8 @@
 <section class="transactions-container">
 
-    <!-- <app-search-filter (onSearch)="handleSearch($event)" (onFilter)="handleSort($event)"></app-search-filter> -->
+    <app-search-filters (onSearch)="handleOnSearch($event)" (onFilter)="handleSort($event)"></app-search-filters>
     <ul >
-        <li *ngFor="let transaction of transactions$">
+        <li *ngFor="let transaction of transactionsLog">
 
             <span class="bar" [style.backgroundColor]="transaction.categoryCode"></span>
             <span class="date">{{ transaction.transactionDate | date:'MMM d' }}</span>
@@ -10,12 +10,11 @@
             <span class="transactionType">
                 <p>
                 <!-- {{ transaction }} -->
-                    
                     <strong>{{ transaction.merchant }}</strong>
                     {{ transaction.transactionType }}
                 </p>
             </span>
-            <span class="amount"></span>
+            <span class="amount">{{ transaction.amount }}</span>
         </li>
     </ul>
 </section>
