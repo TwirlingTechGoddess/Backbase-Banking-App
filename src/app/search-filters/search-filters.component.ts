@@ -1,9 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { mergeMap } from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { mergeMap, switchMapTo } from 'rxjs/operators';
 
 import { Subject, Observable, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, delay } from 'rxjs/operators';
 
+export enum filters {
+  date = 1,
+  beneficiaries = 2,
+  amount = 3
+}
 
 @Component({
   selector: 'app-search-filters',
@@ -12,17 +17,17 @@ import { debounceTime, distinctUntilChanged, delay } from 'rxjs/operators';
 })
 export class SearchFiltersComponent implements OnInit {
 
+  @Output() onFilter = new EventEmitter();
   @Output() onSearch = new EventEmitter();
+  public sortByDate = true;
+  public sortByBeneficiaries = false;
+  public sortByAmount = false;
 
-  private keyUpSubject = new Subject<string>();
-  
+  @ViewChild('date') date;
+  @ViewChild('beneficiaries') beneficiaries;
+  @ViewChild('amount') amount;
+
   constructor() {
-    // const onKeyUpEvent = this.keyUpSubject.pipe(
-    //   debounceTime(250)).pipe(
-    //   distinctUntilChanged()).pipe(
-    //   mergeMap((searchTerm) => of(searchTerm))).pipe(
-    //   delay(100)).subscribe(
-    //   value => this.onSearch.emit(value))
   }
 
   ngOnInit() {
@@ -30,6 +35,38 @@ export class SearchFiltersComponent implements OnInit {
 
   onSearchInput(val) {
     this.onSearch.emit(val)
+  }
+
+  filter(val) {
+    this.handleSort(val)
+    this.onFilter.emit(val)
+  }
+
+  handleSort(type) {
+    this.removeClass()
+    console.log(this.sortByDate, this.sortByBeneficiaries, this.sortByAmount, type)
+    switch (type) {
+      case filters.date:
+        this.sortByDate = !this.sortByDate;
+        this.date.nativeElement.className = (this.sortByDate ? 'up' : 'down')
+        break;
+      case filters.beneficiaries:
+        this.sortByBeneficiaries = !this.sortByBeneficiaries;
+        this.beneficiaries.nativeElement.className = (this.sortByBeneficiaries ? 'up' : 'down')
+        break;
+      case filters.amount:
+        this.sortByAmount = !this.sortByAmount;
+        this.amount.nativeElement.className = (this.sortByAmount ? 'up' : 'down')
+        break;
+      default:
+        return 
+    }
+  }
+
+  removeClass() {
+    this.date.nativeElement.className = ''
+    this.beneficiaries.nativeElement.className = ''
+    this.amount.nativeElement.className = ''
   }
 
 }
