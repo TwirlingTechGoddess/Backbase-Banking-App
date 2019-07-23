@@ -4,17 +4,18 @@ This app was build by following along to this [Angular Tutorial](https://www.you
 
 The challenge was to create a complete #angular #Angular4 web application and also add Continuous Integration with CircleCI. Here I take the single JPG image of the app provided, aAnd required assets. Please note the icons given are not transparent as shown in the preview image, so we quickly clean them up using Photoshop.
 
-We generate following components:
--- header
--= app-root
--- make-transfer component (which is going to be just a dummy component cause you cant really make an online transfer, you
+#### We generate following components:
+##### header
+##### app-root
+##### make-transfer component 
+    (which is going to be just a dummy component cause you cant really make an online transfer, you
     need API's like stripe or some dummy API's which will take much more time, I'm sure some of you can give it a try and post
     here in comments, I will try my best to help you all.)
--- recent-transactions component
--- transactions-row component (responsive flow)
--- search-filters component
--- transactions Service
--- transactions JSON map
+##### recent-transactions component
+##### transactions-row component (responsive flow)
+##### search-filters component
+##### transactions Service
+##### transactions JSON map
 
 Once I get the desired design with html and css, I write our JavaScript code to get the dynamic application behaviour.
 
