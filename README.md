@@ -24,6 +24,12 @@ Once I get the desired design with html and css, I write our JavaScript code to 
 
 ```npm audit fix```
 
+```cd Backbase-Banking-App```
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 Screenshot of full overall layout:
 ![layout](https://github.com/TwirlingGoddess/Backbase-Banking-App/blob/master/Screen%20Shot%202019-04-16%20at%207.34.26%20PM.png)
 
@@ -32,9 +38,6 @@ Close-up of filter and search functionalty:
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
