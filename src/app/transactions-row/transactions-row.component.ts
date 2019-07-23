@@ -31,12 +31,11 @@ export class TransactionsRowComponent implements OnInit {
 
   ngOnInit() {
     return this.transactionsService.getAll().subscribe(data => {
-        this.transactionsLog = this.transactionsBackup = data.data
+        this.transactionsLog = this.transactionsBackup = data['data']
       });
   }
 
   handleOnSearch(term) {
-    console.log(this.transactionsBackup, this.transactionsLog)
     this.transactionsLog = this.transactionsBackup;
     if(term.length === 0) {
       return;
